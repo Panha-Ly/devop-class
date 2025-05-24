@@ -1,0 +1,13 @@
+name: Trigger Render Deployment
+run-name: Triggering Render Deployment
+on:
+  push:
+    branches:
+      - main  # Runs when code is pushed to main branch
+
+jobs:
+  trigger-render:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Call Render Deploy Hook
+        run: curl -X POST ${{ secrets.RENDER_DEPLOY_HOOK }}
