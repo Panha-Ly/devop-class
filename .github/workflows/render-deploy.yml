@@ -1,13 +1,23 @@
 name: Trigger Render Deployment
 run-name: Triggering Render Deployment
 on:
-  push:
-    branches:
-      - main  # Runs when code is pushed to main branch
+  workflow_run:
+    workflows: ["Build and Push Docker Image"]
+    branches: [main]
+    types: [completed]
 
 jobs:
-  trigger-render:
+  on-success:
     runs-on: ubuntu-latest
+    # Runs when docker image is pushed to docker hub
+    if: ${{ github.event.workflow_run.conclusion == 'success' }}
     steps:
+      - run: echo 'The docker build and push workflow passed'
       - name: Call Render Deploy Hook
         run: curl -X POST ${{ secrets.RENDER_DEPLOY_HOOK }}
+  on-failure:
+    runs-on: ubuntu-latest
+    if: ${{ github.event.workflow_run.conclusion == 'failure' }}
+    steps:
+      - run: echo 'The docker build and push workflow failed'
+     
