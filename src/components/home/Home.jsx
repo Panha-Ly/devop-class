@@ -6,7 +6,7 @@ const Home = () => {
         <div>
             <div className="jumbotron">
                 <h1 className="display-6">Hello, Panha!</h1>
-                <p className="lead">This is a simple react app that i have built for the DevOps final project</p>
+                <p className="lead">This is a simple react app that i have built for the DevOps final project.</p>
                 <hr className="my-2" />
                 <p>
                     The building and deployment process of this app has been automated using GitHub Actions. <br/>
