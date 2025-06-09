@@ -26,6 +26,6 @@ jobs:
         with:
           context: .
           push: true
-          tags: panha22/devops_class:latest
+          tags: panha22/react-app:latest
     
       - run: echo "Docker image built and pushed successfully!"
