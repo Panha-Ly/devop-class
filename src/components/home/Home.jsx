@@ -5,7 +5,7 @@ const Home = () => {
     return (
         <div>
             <div className="jumbotron">
-                <h1 className="display-6">Hello, DevOps Class!</h1>
+                <h1 className="display-6">Hello, Panha!</h1>
                 <p className="lead">This is a simple react app that i have built for the DevOps final project</p>
                 <hr className="my-2" />
                 <p>
